@@ -28,7 +28,7 @@ The request to /hello completed only after the request to ``/total``. The slowFu
 <br />``Returning /hello results``
 
 ## Go to path after/
-To test the improvement using fork() made on HTTP server, begin by executing the ``httpServer.js`` file with node:
+To test the improvement using ``new Worker`` made on HTTP server, begin by executing the ``httpServer.js`` file with node:
 <br />``node httpServer.js``
 
 Like before, it will output the following message when it launches:
@@ -58,4 +58,4 @@ Unlike the first time we tried this, the second request to ``/hello`` runs immed
 
 These logs show that the request for the ``/hello`` endpoint ran after the worker process was created but before the worker process had finished its task.
 
-Since we moved the blocking code in a worker process using fork(), the server was still able to respond to other requests and execute other JavaScript code. Because of the ``new Worker`` function’s message passing ability, we can control when a worker process begins an activity.
+Since we moved the blocking code in a worker process using ``new Worker``, the server was still able to respond to other requests and execute other JavaScript code. Because of the ``new Worker`` function’s message passing ability, we can control when a worker process begins an activity.
